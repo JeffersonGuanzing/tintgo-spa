@@ -1,0 +1,70 @@
+<section class="section" aria-labelledby="benefits-title">
+  <div class="container">
+    <div class="benefits__head">
+      <p class="eyebrow">Why TintGo</p>
+      <h2 class="section-title" id="benefits-title">
+        No shop. No queue. No surprises.
+      </h2>
+      <p class="section-lead">
+        We keep the process simple and the price clear, so you can get on with
+        your day while we take care of the car.
+      </p>
+    </div>
+
+    <ul class="benefit-grid">
+      @for (benefit of site.benefits; track benefit.title) {
+        <li class="benefit-card">
+          <span class="benefit-icon" aria-hidden="true">
+            @switch (benefit.icon) {
+              @case ('value') {
+                <svg viewBox="0 0 24 24" focusable="false">
+                  <path
+                    d="M20.6 13.2 13.2 20.6a2 2 0 0 1-2.8 0l-7-7a2 2 0 0 1-.6-1.5l.3-7a2 2 0 0 1 1.9-1.9l7-.3a2 2 0 0 1 1.5.6l7 7a2 2 0 0 1 .1 2.7Z"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.8"
+                  />
+                  <circle cx="8.4" cy="8.4" r="1.6" fill="currentColor" />
+                </svg>
+              }
+              @case ('speed') {
+                <svg viewBox="0 0 24 24" focusable="false">
+                  <path
+                    d="M13.2 2.5 4.6 13.4h5.8L10.8 21.5l8.6-10.9h-5.8z"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linejoin="round"
+                    stroke-width="1.8"
+                  />
+                </svg>
+              }
+              @case ('quality') {
+                <svg viewBox="0 0 24 24" focusable="false">
+                  <path
+                    d="M12 2.8 20 6v5.2c0 4.8-3.3 8.5-8 10-4.7-1.5-8-5.2-8-10V6z"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linejoin="round"
+                    stroke-width="1.8"
+                  />
+                  <path
+                    d="m8.4 11.8 2.4 2.4 4.8-5"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.9"
+                  />
+                </svg>
+              }
+            }
+          </span>
+          <h3>{{ benefit.title }}</h3>
+          <p>{{ benefit.description }}</p>
+        </li>
+      }
+    </ul>
+  </div>
+</section>

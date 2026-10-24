@@ -1,0 +1,31 @@
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <a
+      class="wordmark"
+      href="#top"
+      [attr.aria-label]="site.name + ' — back to top'"
+    >
+      <span class="wordmark__text" aria-hidden="true">
+        <span class="wordmark__tint">{{ site.brand.first }}</span
+        ><span class="wordmark__go">{{ site.brand.second }}</span>
+      </span>
+      <span class="wordmark__arrow" aria-hidden="true">
+        <svg viewBox="0 0 24 24" focusable="false">
+          <path
+            d="M5 12h13m-5-5 5 5-5 5"
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2.5"
+          />
+        </svg>
+      </span>
+    </a>
+
+    <p class="site-footer__line">
+      {{ site.footer.tagline }} ·
+      <a [href]="site.phone.href">{{ site.phone.display }}</a>
+    </p>
+  </div>
+</footer>

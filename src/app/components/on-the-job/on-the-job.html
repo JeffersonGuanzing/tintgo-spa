@@ -1,0 +1,39 @@
+<section class="section section-alt" aria-labelledby="job-title">
+  <div class="container job__grid">
+    <div class="job__story">
+      <p class="eyebrow">{{ site.onTheJob.eyebrow }}</p>
+      <h2 class="section-title" id="job-title">{{ site.onTheJob.title }}</h2>
+      <p class="job__body">{{ site.onTheJob.body }}</p>
+
+      <figure class="job__figure job__figure--scene">
+        <div class="job__media">
+          <video
+            #sceneVideo
+            [src]="site.onTheJob.scene.src"
+            width="1000"
+            height="325"
+            [attr.aria-label]="site.onTheJob.scene.alt"
+            controls
+            muted
+            loop
+            playsinline
+          ></video>
+        </div>
+        <figcaption>{{ site.onTheJob.scene.caption }}</figcaption>
+      </figure>
+    </div>
+
+    <figure class="job__figure job__figure--poster">
+      <div class="job__media">
+        <img
+          [ngSrc]="site.onTheJob.poster.src"
+          width="900"
+          height="1027"
+          [alt]="site.onTheJob.poster.alt"
+          loading="lazy"
+        />
+      </div>
+      <figcaption>{{ site.onTheJob.poster.caption }}</figcaption>
+    </figure>
+  </div>
+</section>

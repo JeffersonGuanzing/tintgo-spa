@@ -1,0 +1,25 @@
+<section class="section section-alt" aria-labelledby="how-title">
+  <div class="container">
+    <div class="how__head">
+      <p class="eyebrow">How it works</p>
+      <h2 class="section-title" id="how-title">Three steps. No showroom.</h2>
+      <p class="section-lead">
+        A free quote takes one message. If the price and schedule work for you,
+        we bring the tinting to your parking spot.
+      </p>
+    </div>
+
+    <ol class="steps">
+      @for (step of site.steps; track step.title; let i = $index) {
+        <li class="step">
+          <span class="step__number" aria-hidden="true">{{ i + 1 }}</span>
+          <div class="step__body">
+            <p class="step__label">Step {{ i + 1 }}</p>
+            <h3>{{ step.title }}</h3>
+            <p>{{ step.description }}</p>
+          </div>
+        </li>
+      }
+    </ol>
+  </div>
+</section>

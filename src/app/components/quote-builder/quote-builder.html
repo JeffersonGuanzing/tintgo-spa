@@ -1,0 +1,141 @@
+<section class="section quote-section" id="quote" aria-labelledby="quote-title">
+  <div class="container">
+    <div class="quote__head">
+      <p class="eyebrow">{{ site.quote.eyebrow }}</p>
+      <h2 class="section-title" id="quote-title">{{ site.quote.title }}</h2>
+      <p class="section-lead">{{ site.quote.lead }}</p>
+    </div>
+
+    <form class="quote-card" (submit)="preventSubmit($event)" novalidate>
+      <div class="quote-fields">
+        <div class="field">
+          <label for="quote-car">{{ site.quote.carLabel }}</label>
+          <input
+            id="quote-car"
+            name="car"
+            type="text"
+            [value]="car()"
+            [placeholder]="site.quote.carPlaceholder"
+            autocomplete="off"
+            (input)="updateCar($event)"
+          />
+        </div>
+
+        <div class="field">
+          <label for="quote-service">{{ site.quote.serviceLabel }}</label>
+          <div class="select-wrap">
+            <select
+              id="quote-service"
+              name="service"
+              [value]="service()"
+              (change)="updateService($event)"
+            >
+              @for (option of site.quote.options; track option) {
+                <option [value]="option">{{ option }}</option>
+              }
+            </select>
+            <svg
+              class="select-wrap__icon"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path
+                d="m7 10 5 5 5-5"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+              />
+            </svg>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="quote-location">{{ site.quote.locationLabel }}</label>
+          <input
+            id="quote-location"
+            name="location"
+            type="text"
+            list="metro-manila-cities"
+            [value]="location()"
+            [placeholder]="site.quote.locationPlaceholder"
+            autocomplete="off"
+            (input)="updateLocation($event)"
+          />
+          <datalist id="metro-manila-cities">
+            @for (city of site.serviceArea.cities; track city) {
+              <option [value]="city"></option>
+            }
+          </datalist>
+        </div>
+
+        <p class="quote-fields__note">
+          Prefer to talk? Call or text
+          <a [href]="site.phone.href">{{ site.phone.display }}</a>.
+        </p>
+      </div>
+
+      <div class="message-preview">
+        <label for="quote-message">{{ site.quote.previewLabel }}</label>
+        <textarea
+          #messageBox
+          id="quote-message"
+          name="message"
+          rows="11"
+          readonly
+          [value]="message()"
+        ></textarea>
+
+        <button
+          class="btn btn-primary message-preview__copy"
+          type="button"
+          (click)="copyMessage()"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <rect
+              x="8"
+              y="8"
+              width="11"
+              height="12"
+              rx="2"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            />
+            <path
+              d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h2"
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            />
+          </svg>
+          {{ site.quote.copyCta }}
+        </button>
+
+        <button
+          class="btn btn-primary message-preview__copy"
+          type="button"
+          (click)="submitQuote()"
+          [disabled]="isSubmitting()"
+        >
+          Send quote
+        </button>
+
+        <p class="message-preview__hint">
+          Nothing is sent from this page. Paste the message into
+          <a
+            [href]="site.messengerUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Messenger</a
+          >
+          or a text.
+        </p>
+      </div>
+    </form>
+  </div>
+</section>

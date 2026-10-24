@@ -1,0 +1,122 @@
+:host {
+  display: block;
+}
+
+.services__head {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: 2rem;
+  align-items: end;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.services__head .section-lead {
+  margin-top: 0;
+  justify-self: end;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1rem, 2.2vw, 1.6rem);
+}
+
+.service-card {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(1.45rem, 3vw, 2.2rem);
+  border: var(--border-card);
+  border-radius: var(--radius-xl);
+  background: var(--color-surface);
+  transition:
+    border-color var(--transition),
+    box-shadow var(--transition),
+    transform var(--transition);
+}
+
+.service-card::after {
+  position: absolute;
+  top: -70px;
+  right: -70px;
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  background: var(--color-tint-soft);
+  content: '';
+  pointer-events: none;
+}
+
+.service-card:hover {
+  border-color: var(--color-orange);
+  box-shadow: var(--shadow-strong);
+  transform: translateY(-3px);
+}
+
+.service-card__top {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.4rem;
+}
+
+.service-card__icon {
+  display: grid;
+  width: 56px;
+  height: 56px;
+  place-items: center;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface-alt);
+  color: var(--color-navy);
+}
+
+.service-card__icon svg {
+  width: 27px;
+  height: 27px;
+}
+
+.service-card__number {
+  position: relative;
+  z-index: 1;
+  color: var(--color-orange);
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+.service-card h3 {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 0.5rem;
+  font-size: 1.35rem;
+  font-weight: 800;
+}
+
+.service-card p {
+  position: relative;
+  z-index: 1;
+  max-width: 46ch;
+  color: var(--color-muted);
+  font-size: 0.98rem;
+}
+
+@media (max-width: 800px) {
+  .services__head {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .services__head .section-lead {
+    justify-self: start;
+  }
+}
+
+@media (max-width: 620px) {
+  .service-grid {
+    grid-template-columns: 1fr;
+  }
+}

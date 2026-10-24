@@ -1,0 +1,20 @@
+<section class="section section-alt" aria-labelledby="area-title">
+  <div class="container area__grid">
+    <div class="area__head">
+      <p class="eyebrow">{{ site.serviceArea.eyebrow }}</p>
+      <h2 class="section-title" id="area-title">
+        {{ site.serviceArea.title }}
+      </h2>
+      <p class="section-lead">{{ site.serviceArea.lead }}</p>
+    </div>
+
+    <ul class="city-list" aria-label="Cities served in Metro Manila">
+      @for (city of site.serviceArea.cities; track city) {
+        <li class="city-chip">
+          <span class="city-chip__dot" aria-hidden="true"></span>
+          {{ city }}
+        </li>
+      }
+    </ul>
+  </div>
+</section>

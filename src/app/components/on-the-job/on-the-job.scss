@@ -1,0 +1,68 @@
+:host {
+  display: block;
+}
+
+.job__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(0, 0.75fr);
+  gap: clamp(2rem, 4vw, 4rem);
+  align-items: center;
+}
+
+.job__story {
+  min-width: 0;
+}
+
+.job__body {
+  max-width: 58ch;
+  margin-top: 1rem;
+  color: var(--color-muted);
+  font-size: 1.02rem;
+}
+
+.job__figure {
+  margin: 0;
+}
+
+.job__figure--scene {
+  margin-top: clamp(1.6rem, 3vw, 2.4rem);
+}
+
+.job__figure--poster {
+  width: 100%;
+  max-width: 420px;
+  margin-inline: auto;
+}
+
+.job__media {
+  overflow: hidden;
+  border: var(--border-card);
+  border-radius: var(--radius-xl);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-soft);
+}
+
+.job__media img,
+.job__media video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+figcaption {
+  margin-top: 0.7rem;
+  color: var(--color-muted);
+  font-size: 0.85rem;
+  line-height: 1.45;
+}
+
+@media (max-width: 900px) {
+  .job__grid {
+    grid-template-columns: 1fr;
+    gap: 2.2rem;
+  }
+
+  .job__figure--poster {
+    max-width: 420px;
+  }
+}

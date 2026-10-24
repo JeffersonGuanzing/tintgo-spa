@@ -1,0 +1,195 @@
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero__glow" aria-hidden="true"></div>
+  <div class="container hero__inner">
+    <div class="hero__copy">
+      <p class="hero__badge">
+        <span class="hero__badge-dot" aria-hidden="true"></span>
+        {{ site.hero.badge }}
+      </p>
+
+      <h1 class="hero__title" id="hero-title">
+        {{ site.hero.titleLead }}<br />
+        <span class="hero__accent">{{ site.hero.titleAccent }}</span>
+      </h1>
+
+      <p class="hero__lead">{{ site.hero.lead }}</p>
+
+      <div class="hero__actions">
+        <a
+          class="btn btn-primary"
+          [href]="site.messengerUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Message us for a free quote on Facebook Messenger (opens in a new tab)"
+        >
+          {{ site.hero.primaryCta }}
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path
+              d="M7 17 17 7M8 7h9v9"
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2.4"
+            />
+          </svg>
+        </a>
+        <a class="btn btn-outline" href="#quote">
+          {{ site.hero.secondaryCta }}
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path
+              d="M12 5v14m-5-5 5 5 5-5"
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2.4"
+            />
+          </svg>
+        </a>
+      </div>
+
+      <ul class="hero__checklist" aria-label="Why choose TintGo">
+        @for (item of site.hero.checklist; track item) {
+          <li class="hero__check-item">
+            <span class="hero__check" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path
+                  d="m6 12.5 4 4 8-9"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2.8"
+                />
+              </svg>
+            </span>
+            {{ item }}
+          </li>
+        }
+      </ul>
+    </div>
+
+    <div class="hero__art">
+      <svg
+        class="car-art"
+        viewBox="0 0 680 540"
+        role="img"
+        [attr.aria-label]="site.hero.illustrationAlt"
+        xmlns="http://www.w3.org/2000/svg"
+        focusable="false"
+      >
+        <defs>
+          <linearGradient id="heroBodyFill" x1="0" y1="0" x2="0" y2="1">
+            <stop class="body-stop-top" offset="0" />
+            <stop class="body-stop-bottom" offset="1" />
+          </linearGradient>
+          <linearGradient id="heroTintFill" x1="0" y1="0" x2="1" y2="1">
+            <stop class="tint-stop-start" offset="0" />
+            <stop class="tint-stop-end" offset="1" />
+          </linearGradient>
+          <linearGradient id="heroClearFill" x1="0" y1="0" x2="1" y2="1">
+            <stop class="clear-stop-start" offset="0" />
+            <stop class="clear-stop-end" offset="1" />
+          </linearGradient>
+        </defs>
+
+        <g class="sun" aria-hidden="true">
+          <circle class="sun-glow" cx="560" cy="106" r="94" />
+          <circle class="sun-core" cx="560" cy="106" r="53" />
+          <g class="sun-rays">
+            <line x1="560" y1="32" x2="560" y2="12" />
+            <line x1="621" y1="46" x2="635" y2="30" />
+            <line x1="663" y1="106" x2="683" y2="106" />
+            <line x1="621" y1="166" x2="635" y2="182" />
+            <line x1="560" y1="180" x2="560" y2="200" />
+            <line x1="499" y1="166" x2="485" y2="182" />
+            <line x1="457" y1="106" x2="437" y2="106" />
+            <line x1="499" y1="46" x2="485" y2="30" />
+          </g>
+        </g>
+
+        <g class="speed-lines" aria-hidden="true">
+          <rect x="16" y="258" width="158" height="10" rx="5" />
+          <rect x="52" y="296" width="122" height="10" rx="5" />
+          <rect x="8" y="334" width="176" height="10" rx="5" />
+        </g>
+
+        <ellipse
+          class="ground-shadow"
+          cx="380"
+          cy="484"
+          rx="258"
+          ry="24"
+          aria-hidden="true"
+        />
+
+        <g class="wheels" aria-hidden="true">
+          <g>
+            <circle class="tire" cx="214" cy="436" r="50" />
+            <circle class="rim" cx="214" cy="436" r="27" />
+            <circle class="hub" cx="214" cy="436" r="10" />
+          </g>
+          <g>
+            <circle class="tire" cx="546" cy="436" r="50" />
+            <circle class="rim" cx="546" cy="436" r="27" />
+            <circle class="hub" cx="546" cy="436" r="10" />
+          </g>
+        </g>
+
+        <g class="car">
+          <path
+            class="car-body"
+            d="M116 376c-3-22 10-41 40-49l82-23 64-60c14-13 32-21 55-21h111c24 2 42 14 55 32l45 60 36 12c26 8 39 25 36 49l-5 21c-3 10-15 17-32 17H151c-18 0-32-10-35-25z"
+          />
+
+          <path
+            class="car-line"
+            d="M252 300l59-57c10-9 22-13 36-13h45v70z"
+          />
+          <path
+            class="car-line"
+            d="M410 230h54c16 2 29 10 38 21l36 49H410z"
+          />
+
+          <path
+            class="window-tinted"
+            d="M254 297l56-54c9-8 20-12 33-12h45v66z"
+          />
+          <path
+            class="window-glare tint-glare"
+            d="m280 284 38-37c5-5 12-8 19-8h9l-51 45z"
+          />
+
+          <path
+            class="window-clear"
+            d="M413 233h50c13 2 24 8 32 18l33 46H413z"
+          />
+          <path class="window-glare clear-glare" d="M432 240h7l-7 7z" />
+          <path class="window-glare clear-glare" d="m447 240 20 31h-6l-20-31z" />
+
+          <path class="pillar" d="M392 230h18v70h-18z" />
+
+          <path class="car-line" d="M392 230v70M538 300l24-10c9-3 14 5 9 12l-14 12" />
+          <path class="car-line thin" d="M300 302v103M600 352v55" />
+
+          <rect class="door-handle" x="302" y="330" width="25" height="7" rx="3.5" />
+          <rect class="door-handle" x="472" y="330" width="25" height="7" rx="3.5" />
+
+          <path class="headlight" d="M618 344h17c8 2 12 9 9 16l-1 4h-25z" />
+          <path class="taillight" d="M126 344h19v20h-19c-4 0-6-3-6-7v-6c0-4 2-7 6-7z" />
+
+          <path
+            class="wheel-arch"
+            d="M158 412a56 56 0 0 1 112 0M490 412a56 56 0 0 1 112 0"
+          />
+          <path class="ramp-line" d="M128 394h58m300 0h122" />
+        </g>
+
+        <g class="sparkle" aria-hidden="true">
+          <path d="M332 190c2 12 6 16 18 18-12 2-16 6-18 18-2-12-6-16-18-18 12-2 16-6 18-18z" />
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>

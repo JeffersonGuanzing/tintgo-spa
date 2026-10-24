@@ -1,0 +1,50 @@
+<section class="section" aria-labelledby="pricing-title">
+  <div class="container pricing__grid">
+    <div class="pricing__info">
+      <p class="eyebrow">{{ site.pricing.eyebrow }}</p>
+      <h2 class="section-title" id="pricing-title">{{ site.pricing.title }}</h2>
+      <p class="section-lead">
+        There is no one-size price for tint. These four things shape your quote,
+        and we confirm the total with you before any work starts.
+      </p>
+
+      <ul class="pricing__factors">
+        @for (factor of site.pricing.factors; track factor.title; let i = $index) {
+          <li class="factor">
+            <span class="factor__number" aria-hidden="true">
+              @if (i < 9) {
+                0
+              }{{ i + 1 }}
+            </span>
+            <div>
+              <h3>{{ factor.title }}</h3>
+              <p>{{ factor.description }}</p>
+            </div>
+          </li>
+        }
+      </ul>
+    </div>
+
+    <aside class="price-card" aria-labelledby="price-card-title">
+      <p class="price-card__label">{{ site.pricing.freeLabel }}</p>
+      <h3 class="price-card__title" id="price-card-title">
+        {{ site.pricing.cardTitle }}
+      </h3>
+      <p class="price-card__body">{{ site.pricing.cardBody }}</p>
+      <a class="btn btn-primary price-card__cta" href="#quote">
+        {{ site.pricing.cta }}
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path
+            d="M12 5v14m-5-5 5 5 5-5"
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2.4"
+          />
+        </svg>
+      </a>
+      <p class="price-card__note">No obligation. No surprise add-ons.</p>
+    </aside>
+  </div>
+</section>
